@@ -5,18 +5,9 @@ This is a development project for the Software Engineering course at PTIT, carri
 
 - **Monthly Revenue Statistics:**
   - Manager selects the statistics menu.
-  - Chooses to view revenue by month.
-  - The result page displays a list of the last 12 months sorted by time:
-    - Month name
-    - Total revenue
-  - Manager clicks on a specific month to view detailed invoices of that month:
-    - Date
-    - Customer name
-    - Car name
-    - Total services/parts
-    - Total amount
-  - Manager clicks to view a detailed invoice:
-    - The detailed invoice interface appears as when presented to the customer at the time of payment.
+  - View revenue by month.
+  - View detailed invoices of that month:
+  - View a detailed invoice:
 
 ## Installation
 
@@ -58,10 +49,25 @@ This is a development project for the Software Engineering course at PTIT, carri
 Contributions are welcome! Please follow these steps to contribute:
 
 1. Fork the repository.
-2. Create a new branch (git checkout -b feature-branch).
+2. Create a new branch.
+
+   ```sh
+   git checkout -b feature-branch
+   ```
+
 3. Make your changes.
-4. Commit your changes (git commit -m 'Add some feature').
-5. Push to the branch (git push origin feature-branch).
+4. Commit your changes.
+
+   ```sh
+   git commit -m 'Add some feature'
+   ```
+
+5. Push to the branch.
+
+   ```sh
+   git push origin feature-branch
+   ```
+
 6. Open a pull request.
 
 ## Contact
