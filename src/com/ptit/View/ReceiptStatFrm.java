@@ -10,7 +10,6 @@ import com.ptit.Model.Receipt;
 import com.ptit.Model.RepairedCar;
 import com.ptit.Model.UsedService;
 import com.ptit.Model.UsedSupply;
-import java.text.DecimalFormat;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;

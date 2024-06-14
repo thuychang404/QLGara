@@ -66,10 +66,11 @@ public class ReceiptDetailFrm extends javax.swing.JFrame {
                 rc.getCar().getLicensePlate(),
                 rc.getCar().getType(),
                 rc.getCar().getAutomaker()
-            });  
+            });
+        }
+        for (RepairedCar rc : receipt.getRepairedCars()) {
             loadReceipt(rc);
         }
-
     }
     
     void loadReceipt(RepairedCar rc) {
@@ -89,7 +90,7 @@ public class ReceiptDetailFrm extends javax.swing.JFrame {
     
     void loadUsedSupply(RepairedCar rc) {
         DefaultTableModel model = (DefaultTableModel) this.jTableUsedSupply.getModel();
-        model.setRowCount(0);
+//        model.setRowCount(0);
         for (UsedSupply uss : rc.getUsedSupplies()) {
             model.addRow(new Object[]{
                 uss.getId(),
@@ -104,7 +105,7 @@ public class ReceiptDetailFrm extends javax.swing.JFrame {
     
     void loadUsedService(RepairedCar rc) {
         DefaultTableModel model = (DefaultTableModel) this.jTableUsedService.getModel();
-        model.setRowCount(0);
+//        model.setRowCount(0);
         for (UsedService us : rc.getUsedServices()) {
             model.addRow(new Object[]{
                 us.getId(),
