@@ -22,7 +22,7 @@ This is a development project for the Software Engineering course at PTIT, carri
 
 1. Clone the repository:
    ```sh
-   git clone https://github.com/yourusername/CarGarageManagement.git
+   git clone https://github.com/thuychang404/QLGara.git
    ```
 2. Open the project in NetBeans:
 
