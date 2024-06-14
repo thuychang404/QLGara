@@ -55,6 +55,7 @@ public class RepairedCarDAO extends DAO{
                 // usedService
                 UsedServiceDAO usDAO = new UsedServiceDAO();
                 ArrayList<UsedService> us = usDAO.getUsedServiceByRepairedCarID(rc.getId());
+                
                 // usedSupply
                 UsedSupplyDAO ussDAO = new UsedSupplyDAO();
                 ArrayList<UsedSupply> uss = ussDAO.getUsedSupplyByRepairedCarID(rc.getId());

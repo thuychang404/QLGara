@@ -25,11 +25,11 @@ public class IncomeStatDAO extends DAO{
         float result = 0;
         
         String query = """
-                       select sum(uss.price) as total_usedsupply from receipt as r
-                       join usedsupply as uss on r.id = uss.receiptID
-                       where month(r.receiptDate)=? and year(r.receiptDate)=?
-                       group by r.id
-                       order by r.id asc;""";
+                    SELECT r.id, SUM(uss.price) AS total_usedsupply FROM receipt AS r JOIN repairedcar AS rc ON rc.receiptID = r.id
+                    JOIN usedsupply AS uss ON uss.repairedCar = rc.id
+                    WHERE MONTH(r.receiptDate)=? AND YEAR(r.receiptDate)=?
+                    GROUP BY r.id
+                    ORDER BY r.id ASC;""";
         
         try {
             PreparedStatement ps = con.prepareStatement(query);
@@ -50,11 +50,18 @@ public class IncomeStatDAO extends DAO{
     public float getTotalMoneyUsedServiceByDate(int month, int year) {
         float result = 0;
         String query = """
-                       select sum(us.price) as total_usedservice from receipt as r
-                       join usedservice as us on r.id = us.receiptID
-                       where month(r.receiptDate)=? and year(r.receiptDate)=?
-                       group by r.id
-                       order by r.id asc;""";
+                       SELECT 
+                           r.id, SUM(us.price) AS total_usedservice
+                       FROM
+                           receipt AS r
+                               JOIN
+                           repairedcar AS rc ON rc.receiptID = r.id
+                               JOIN
+                           usedservice AS us ON us.repairedcar = rc.id
+                       WHERE
+                           MONTH(r.receiptDate)=? AND YEAR(r.receiptDate)=?
+                       GROUP BY r.id
+                       ORDER BY r.id ASC;""";
         
         try {
             PreparedStatement ps = con.prepareStatement(query);
@@ -107,15 +114,16 @@ public class IncomeStatDAO extends DAO{
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         
         try (
-            PreparedStatement ps = con.prepareStatement(query);
+            PreparedStatement ps = con.prepareStatement(query1);
                 
             ResultSet rs = ps.executeQuery()) {
 
             while (rs.next()) {
                 int year = rs.getInt("year");
                 int month = rs.getInt("month");
-//                float income = this.getTotalMoneyUsedServiceByDate(month, year) + this.getTotalMoneyUsedSupplyByDate(month, year);
-                float income = rs.getFloat("TotalRevenue");
+//                System.out.println(year + "/" + month);
+                float income = this.getTotalMoneyUsedServiceByDate(month, year) + this.getTotalMoneyUsedSupplyByDate(month, year);
+//                float income = rs.getFloat("TotalRevenue");
 //                income = income / 1000000;
                 IncomeStat incomeStat = new IncomeStat(month, year, income);
                 result.add(incomeStat);
@@ -131,10 +139,10 @@ public class IncomeStatDAO extends DAO{
     public static void main(String args[]) throws SQLException {
         IncomeStatDAO incomeStatDAO = new IncomeStatDAO();
         ArrayList<IncomeStat> incomeStats = incomeStatDAO.getIncomeStatByTime();
-//        for (IncomeStat incomeStat : incomeStats) {
-//            System.out.println(incomeStat.toString());
-//        } 
+        for (IncomeStat incomeStat : incomeStats) {
+            System.out.println(incomeStat.toString());
+        } 
         IncomeStat incomeStat = incomeStats.get(0);
-        System.out.println(incomeStat.toString());
+//        System.out.println(incomeStat.toString());
     }
 }
