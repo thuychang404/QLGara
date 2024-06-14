@@ -40,7 +40,6 @@ public class ReceiptDAO extends DAO{
                 Date receiptDate = rs.getDate("receiptDate");
                 int isBanking = rs.getInt("isBanking");
                 int customerID = rs.getInt("customerID");
-                int carID = rs.getInt("carID");
                 int userID = rs.getInt("creatorID");
                 
                 
@@ -55,10 +54,6 @@ public class ReceiptDAO extends DAO{
                 // customerID
                 CustomerDAO customerDAO = new CustomerDAO();
                 Customer customer = customerDAO.getCustomerByID(customerID);
-                
-                // carID
-                CarDAO carDAO = new CarDAO();
-                Car car = carDAO.getCarByID(carID);
                 
                 // userID
                 UserDAO userDAO = new UserDAO();
@@ -76,7 +71,7 @@ public class ReceiptDAO extends DAO{
         return result;
     }
     
-        public Receipt getReceiptByCustomerID(int customerID) {
+    public Receipt getReceiptByCustomerID(int customerID) {
         Receipt result = new Receipt();
         
         String query =  "SELECT * FROM Receipt WHERE customerID=?";
@@ -91,7 +86,6 @@ public class ReceiptDAO extends DAO{
                 Date receiptDate = rs.getDate("receiptDate");
                 int isBanking = rs.getInt("isBanking");
 //                int customerID = rs.getInt("customerID");
-                int carID = rs.getInt("carID");
                 int userID = rs.getInt("creatorID");
                 
                 
@@ -106,10 +100,6 @@ public class ReceiptDAO extends DAO{
                 // customerID
                 CustomerDAO customerDAO = new CustomerDAO();
                 Customer customer = customerDAO.getCustomerByID(customerID);
-                
-                // carID
-                CarDAO carDAO = new CarDAO();
-                Car car = carDAO.getCarByID(carID);
                 
                 // userID
                 UserDAO userDAO = new UserDAO();

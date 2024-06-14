@@ -87,6 +87,11 @@ public class UsedSupply{
 
     public UsedSupply() {
     }
+
+    @Override
+    public String toString() {
+        return "UsedSupply{" + "id=" + id + ", supply=" + supply + ", amount=" + amount + ", price=" + price + ", discount=" + discount + ", repairedCarID=" + repairedCarID + '}' + "\n";
+    }
     
     
 }

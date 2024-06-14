@@ -19,7 +19,7 @@ public class Receipt {
     private Customer customer;
 //    private Car car;
     private User creator;
-    private Slot slot = null;
+//    private Slot slot = null;
 //    private ArrayList<UsedService> usedServices;
 //    private ArrayList<UsedSupply> usedSupplies;
     private ArrayList<RepairedCar> repairedCars;
@@ -64,13 +64,13 @@ public class Receipt {
         this.creator = creator;
     }
 
-    public Slot getSlot() {
-        return slot;
-    }
-
-    public void setSlot(Slot slot) {
-        this.slot = slot;
-    }
+//    public Slot getSlot() {
+//        return slot;
+//    }
+//
+//    public void setSlot(Slot slot) {
+//        this.slot = slot;
+//    }
 
     public ArrayList<RepairedCar> getRepairedCars() {
         return repairedCars;
@@ -91,5 +91,12 @@ public class Receipt {
         this.creator = creator;
         this.repairedCars = repairedCars;
     }
+
+    @Override
+    public String toString() {
+        return "Receipt{" + "id=" + id + ", receiptDate=" + receiptDate + ", paymentType=" + paymentType + ", customer=" + customer + ", creator=" + creator + ", repairedCars=" + repairedCars + '}';
+    }
+    
+    
     
 }

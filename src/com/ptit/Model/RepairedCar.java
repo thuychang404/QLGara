@@ -68,6 +68,11 @@ public class RepairedCar {
         this.usedSupplies = usedSupplies;
         this.slot = slot;
     }
+
+    @Override
+    public String toString() {
+        return "RepairedCar{" + "id=" + id + ", car=" + car + ", usedServices=" + usedServices.toString() + ", usedSupplies=" + usedSupplies.toString() + ", slot=" + slot.toString() + '}';
+    }
     
     
     

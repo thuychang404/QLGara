@@ -73,4 +73,14 @@ public class RepairedCarDAO extends DAO{
         }
         return result;
     }
+    
+    public static void main(String args[]){
+        RepairedCarDAO rcDAO = new RepairedCarDAO();
+        ArrayList<RepairedCar> rcList = rcDAO.getRepairedCarByReceiptID(19);
+        for(RepairedCar rc : rcList) {
+            System.out.println(rc.toString());
+        }
+        
+        
+    }
 }

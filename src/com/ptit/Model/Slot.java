@@ -47,6 +47,11 @@ public class Slot {
         this.isEmpty = isEmpty;
         this.gara = gara;
     }
+
+    @Override
+    public String toString() {
+        return "Slot{" + "id=" + id + ", isEmpty=" + isEmpty + ", gara=" + gara + '}';
+    }
     
     
 }

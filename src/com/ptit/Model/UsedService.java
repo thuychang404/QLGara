@@ -66,5 +66,11 @@ public class UsedService {
 
     public UsedService() {
     }
+
+    @Override
+    public String toString() {
+        return "UsedService{" + "id=" + id + ", service=" + service + ", amount=" + amount + ", price=" + price + ", discount=" + discount + '}' + "\n";
+    }
+    
     
 }

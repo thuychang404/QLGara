@@ -76,19 +76,18 @@ public class ReceiptStatDAO extends DAO {
     }
 
     public static void main(String args[]) {
-        IncomeStat incomeStat = new IncomeStat(3, 2024, 21600000);
+        IncomeStat incomeStat = new IncomeStat(4, 2024, 21600000);
         ReceiptStatDAO receiptStatDAO = new ReceiptStatDAO();
         ArrayList<Receipt> receiptStats = receiptStatDAO.getReceiptStatByMonth(incomeStat);
 
         String monthYear = incomeStat.getMonth() + "/" + incomeStat.getYear();
         System.out.println(monthYear);
 //
-//        for (Receipt r : receiptStats) {
-//           
-//            System.out.print(r.getId() + ": ");
-//            double totalPrice = r.getUsedSupplies().stream().mapToDouble(UsedSupply::getPrice).sum();
-//            System.out.println(totalPrice);
-//            
-//        }
+        for (Receipt r : receiptStats) {
+           
+            System.out.println(r.toString()); 
+        }
+        
+//        for ()
     }
 }
